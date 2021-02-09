@@ -1,0 +1,76 @@
+.fullCard_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 85px;
+}
+
+.fullCard_container {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.fullCard_image {
+    width: 580px;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.fullCard_description_wrap {
+    width: 40%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fullCard_description_main {
+    color: rgb(74, 86, 103);
+}
+
+.fullCard_description_title {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+.fullCard_description_property {
+    font-size: 15px;
+}
+
+.fullCard_description_property_title {
+    color: rgb(74, 86, 103);
+}
+
+.fullCard_description_property_value {
+    color: rgb(74, 86, 103);
+}
+
+.fullCard_buy {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fullCard_button_buy button {
+    padding: 12px 25px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(45, 85, 128);
+    color: white;
+    font-size: 15px;
+}
+
+.fullCard_button_buy button:hover {
+    cursor: pointer;
+    background-color: rgb(218, 222, 227);
+    color: rgb(45, 85, 128);
+}
+
+.fullCard_price {
+    font-size: 35px;
+    color: rgb(46,112,173);
+}

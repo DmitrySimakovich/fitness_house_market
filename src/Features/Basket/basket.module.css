@@ -1,0 +1,39 @@
+.basket {
+    color: rgb(132, 153, 175);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid rgb(132, 153, 175);
+    border-radius: 5px;
+    width: 130px;
+    position: relative;
+}
+
+.basket:hover {
+    cursor: pointer;
+}
+
+.basket_list {
+    z-index: 1;
+    background-color: black;
+    position: absolute;
+    width: 200%;
+    top: 50px;
+    left: -50%;
+}
+
+.basket_value {
+    font-size: 15px;
+    background-color: white;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 10px;
+    color: black;
+}
+
+.basket_icon {
+    color: white;
+    width: 17px;
+    height: 17px;
+}
