@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fitness_house_market/static/css/main.461d0063.chunk.css",
-    "main.js": "/fitness_house_market/static/js/main.edca123b.chunk.js",
-    "main.js.map": "/fitness_house_market/static/js/main.edca123b.chunk.js.map",
+    "main.js": "/fitness_house_market/static/js/main.6f36fd84.chunk.js",
+    "main.js.map": "/fitness_house_market/static/js/main.6f36fd84.chunk.js.map",
     "runtime-main.js": "/fitness_house_market/static/js/runtime-main.d903061a.js",
     "runtime-main.js.map": "/fitness_house_market/static/js/runtime-main.d903061a.js.map",
     "static/js/2.15319fb5.chunk.js": "/fitness_house_market/static/js/2.15319fb5.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d903061a.js",
     "static/js/2.15319fb5.chunk.js",
     "static/css/main.461d0063.chunk.css",
-    "static/js/main.edca123b.chunk.js"
+    "static/js/main.6f36fd84.chunk.js"
   ]
 }
