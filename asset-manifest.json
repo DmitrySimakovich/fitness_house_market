@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fitness_house_market/static/css/main.461d0063.chunk.css",
+    "main.js": "/fitness_house_market/static/js/main.6270a752.chunk.js",
+    "main.js.map": "/fitness_house_market/static/js/main.6270a752.chunk.js.map",
+    "runtime-main.js": "/fitness_house_market/static/js/runtime-main.d903061a.js",
+    "runtime-main.js.map": "/fitness_house_market/static/js/runtime-main.d903061a.js.map",
+    "static/js/2.b1ffc608.chunk.js": "/fitness_house_market/static/js/2.b1ffc608.chunk.js",
+    "static/js/2.b1ffc608.chunk.js.map": "/fitness_house_market/static/js/2.b1ffc608.chunk.js.map",
+    "index.html": "/fitness_house_market/index.html",
+    "static/css/main.461d0063.chunk.css.map": "/fitness_house_market/static/css/main.461d0063.chunk.css.map",
+    "static/js/2.b1ffc608.chunk.js.LICENSE.txt": "/fitness_house_market/static/js/2.b1ffc608.chunk.js.LICENSE.txt",
+    "static/media/Ripple-1.3s-197px.c0d0a47d.svg": "/fitness_house_market/static/media/Ripple-1.3s-197px.c0d0a47d.svg",
+    "static/media/shopping-basket-512.320ae284.png": "/fitness_house_market/static/media/shopping-basket-512.320ae284.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d903061a.js",
+    "static/js/2.b1ffc608.chunk.js",
+    "static/css/main.461d0063.chunk.css",
+    "static/js/main.6270a752.chunk.js"
+  ]
+}
