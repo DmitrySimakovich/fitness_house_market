@@ -1,4 +1,5 @@
-import {InferValueTypes} from "../ProductList/productList-reducer";
+import { InferValueTypes } from "../../App/store"
+
 
 const initialState = [] as Array<filterType>
 
@@ -41,14 +42,11 @@ export const filterActions = {
     deleteFilter: (title: string) => ({type: 'FILTERS/DELETE-FILTER', payload: title} as const),
 }
 
-//THUNKS
-
 //TYPES
 export type filterType = {
     title: string
     value: string
 }
-
 type filtersStateType = typeof initialState
 type filterActionType = ReturnType<InferValueTypes<typeof filterActions>>
 

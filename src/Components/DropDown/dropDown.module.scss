@@ -1,0 +1,81 @@
+@import "../../Common/Styles/variables.module.scss";
+@import "../../Common/Styles/mixins.module.scss";
+
+.dropDown_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /*Needed*/
+  padding: 10px 10px;
+  background-color: $color_bgc__secondary;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid $color_bgc__secondary;
+
+  h3 {
+    @include openSans;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+  }
+}
+
+.dropDown_title_open {
+  background-color: white;
+  border: 1px solid rgb(237, 242, 247);
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dropDown_title:hover {
+  cursor: pointer;
+}
+
+.filter_box {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  background-color: white;
+  border: 1px solid rgb(237, 242, 247);
+  //border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.filter_box_ul {
+  @include openSans;
+  font-size: $fs-sm;
+  font-weight: $fw-regular;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-bottom: 5px;
+}
+
+.filter_box_ul:hover {
+  cursor: pointer;
+}
+
+.filter_box_ul li {
+  padding-left: 10px;
+}
+
+.filter_box_ul li:hover {
+  background-color: rgb(237, 242, 247);
+}
+
+.arrow_box {
+  min-width: $base*2.5;
+  min-height: $base*2.5;
+  border: 1px solid black;
+  border-left: 0;
+  border-top: 0;
+  box-sizing: border-box;
+  transform: rotate(-135deg);
+  transform-origin: 50% 50%;
+
+  &__down {
+    transform: rotate(45deg);
+  }
+}

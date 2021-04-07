@@ -1,9 +1,14 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import DropDown from '../../Components/DropDown/dropdown';
-import {filterActions} from "./filter-reducer";
-import style from './filters.module.css';
 
+/*BLL*/
+import {filterActions} from "./filter-reducer";
+
+/* Components*/
+import DropDown from '../../Components/DropDown/dropdown';
+
+/*Style*/
+import style from './filters.module.scss';
 
 const Filters: FC = () => {
 
@@ -18,24 +23,24 @@ const Filters: FC = () => {
     }
 
     return (<>
-            <div className={style.dropDown_item}>
+            <div className={style.item_wrap}>
                 <DropDown title={'Количество занятий'}
                           values={['100 занятий', '18 занятий', '36 занятий', 'разовое посещение']} submit={submit}/>
             </div>
 
-            <div className={style.dropDown_item}>
+            <div className={style.item_wrap}>
                 <DropDown title={'Срок действия'} values={['1 месяц', '6 месяцев', '1 год']} submit={submit}/>
             </div>
 
-            <div className={style.dropDown_item}>
+            <div className={style.item_wrap}>
                 <DropDown title={'Категория тренера'} values={['мастер', 'профи']} submit={submit}/>
             </div>
 
-            <div className={style.dropDown_item}>
+            <div className={style.item_wrap}>
                 <DropDown title={'Время посещения'} values={['утро', 'вечер']} submit={submit}/>
             </div>
 
-            <div className={style.dropDown_item}>
+            <div className={style.item_wrap}>
                 <DropDown title={'Тип секции'} values={['вода']} submit={submit}/>
             </div>
         </>

@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import './index.css';
-
-import App from './App/App';
-import {Provider} from 'react-redux'
-import {store} from "./App/store";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from 'react-redux'
+
+/* BLL */
+import {store} from "./App/store";
+
+/* Components*/
+import App from './App/App';
+
+/* Style */
+import './index.module.scss';
 
 ReactDOM.render(
     <Provider store={store}>

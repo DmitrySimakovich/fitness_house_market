@@ -1,0 +1,91 @@
+@import "../../Common/Styles/variables.module";
+@import "../../Common/Styles/mixins.module";
+
+
+.wrap {
+    display: flex;
+    margin-top: 30px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.image {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    img {
+        width: 500px;
+        height: 320px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.description {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .title {
+        @include openSans;
+        margin: 0;
+        padding: 0;
+        font-size: $fs-lg;
+        font-weight: $fw-bold;
+    }
+}
+
+.main {
+    @include openSans;
+    margin: 0;
+    font-size: $fs-md;
+    font-weight: $fw-regular;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color: $color_text__primary;
+}
+
+
+
+.property {
+    @include openSans;
+    margin: 0;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+}
+
+.fullCard_description_property_title {
+    color: rgb(74, 86, 103);
+}
+
+.fullCard_description_property_value {
+    color: rgb(74, 86, 103);
+}
+
+.purchase {
+    padding-top: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.fullCard_button_buy button {
+    padding: 12px 25px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(45, 85, 128);
+    color: white;
+    font-size: 15px;
+}
+
+.fullCard_button_buy button:hover {
+    cursor: pointer;
+    background-color: rgb(218, 222, 227);
+    color: rgb(45, 85, 128);
+}
+
+.fullCard_price {
+    font-size: 35px;
+    color: rgb(46,112,173);
+}

@@ -1,0 +1,27 @@
+@import "variables.module";
+@import "mixins.module";
+
+/* Layouts */
+.section__outer {
+  position: relative;
+  padding: $base*4 0;
+}
+.section__inner {
+  max-width: 1140px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/* /Layouts */
+.bgc__primary {
+  background-color: $color_bgc__primary;
+}

@@ -1,0 +1,142 @@
+@import "../../Common/Styles/variables.module";
+@import "../../Common/Styles/mixins.module";
+
+.basket {
+  outline: none;
+  color: rgb(132, 153, 175);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid rgb(132, 153, 175);
+  border-radius: 5px;
+  width: 130px;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover ~ .basket_list {
+    display: block;
+  }
+}
+
+.basket_amount {
+  @include openSans;
+  font-size: $fs-xs;
+  font-weight: $fw-regular;
+
+  opacity: 0;
+  transition: .2s;
+  position: absolute;
+  right: calc(100% + 15px);
+  top: -5px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  background-color: $color_bgc__secondary;
+  border-radius: 5px;
+  z-index: 10;
+
+  &::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    right: -7px;
+    height: 25px;
+    width: 25px;
+    transform: rotate(45deg);
+    background-color: $color_bgc__secondary;
+  }
+}
+
+
+.basket_list {
+  display: none;
+  z-index: 1;
+  background-color: darken($color_bgc__secondary, 10%);
+  border-radius: 5px;
+  position: absolute;
+  width: 250%;
+  top: 59px;
+  right: 0;
+  padding: 15px;
+
+  &::after {
+    z-index: -1;
+    top: -10px;
+    right: 55px;
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    transform: rotate(45deg);
+    background-color: darken($color_bgc__secondary, 10%);
+  }
+
+  .element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 15px;
+
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &_title {
+      padding-left: 15px;
+      padding-right: 15px;
+      @include openSans;
+      font-size: $fs-xs;
+      font-weight: $fw-regular;
+    }
+
+    &_price {
+      padding-left: 15px;
+      padding-right: 15px;
+      @include openSans;
+      font-size: $fs-xs;
+      font-weight: $fw-regular;
+
+      strong {
+        font-size: $fs-sm;
+      }
+    }
+
+  }
+  .amount {
+    margin-top: 7px;
+    padding-top: 7px;
+    border-top: 1px solid $color_bgc__secondary;
+    @include openSans;
+    font-size: $fs-xs;
+    font-weight: $fw-regular;
+  }
+}
+
+
+.basket_value {
+  font-size: 15px;
+  background-color: white;
+  padding-left: 11px;
+  padding-right: 11px;
+  border-radius: 10px;
+  color: black;
+}
+
+.basket_icon {
+  color: white;
+  width: 17px;
+  height: 17px;
+}
+
+.pos_relative {
+  position: relative;
+}

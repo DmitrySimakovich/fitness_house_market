@@ -1,4 +1,5 @@
-import {InferValueTypes} from "../Features/ProductList/productList-reducer";
+import {InferValueTypes} from "./store";
+
 
 const initialState = {
     statusLoading: false
@@ -18,5 +19,6 @@ export const appActions = {
 }
 
 export default appReducer
-export type appActionsType =  ReturnType<InferValueTypes<typeof appActions>>
+
+export type appActionsType = ReturnType<InferValueTypes<typeof appActions>>
 export type AppInitialStateType = typeof initialState

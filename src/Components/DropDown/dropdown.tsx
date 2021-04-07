@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
-import arrow from '../../assets/left-arrow.png';
-import style from './dropDown.module.css';
+
+/* Style */
+import style from './dropDown.module.scss';
 
 type propsType = {
     submit: (title: string, value?: string) => void
-
     values: Array<string>
     title: string
 }
@@ -20,13 +20,13 @@ const DropDown: FC<propsType> = (props) => {
 
     return <>
         <div onClick={() => setIsOpen((prevState) => (!prevState))}
-             className={`${style.dropDown_title} ${isOpen ? style.dropDown_title_open : null}`}>
-            <div>{value}</div>
+            className={`${style.dropDown_title} ${isOpen ? style.dropDown_title_open : null}`}>
+            <h3>{value}</h3>
             {
                 isOpen ?
-                    <div className={style.arrow_box}><img src={arrow} className={style.arrow_up}/></div>
+                    <span className={`${style.arrow_box}`}></span>
                     :
-                    <div className={style.arrow_box}><img src={arrow} className={style.arrow_down}/></div>
+                    <span className={`${style.arrow_box} ${style.arrow_box__down}`}></span>
             }
         </div>
         {

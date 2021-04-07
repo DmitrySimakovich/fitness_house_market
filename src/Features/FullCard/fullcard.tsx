@@ -1,12 +1,16 @@
 import React, {FC} from 'react';
-import {dataItem} from "../../Data/data";
-import style from './fullCard.module.css';
 import {useDispatch} from "react-redux";
-import {basketAction} from "../Basket/basket-reducer";
 
-type propsType = dataItem
+/* BLL */
+import {basketThunk} from "../Basket/basket-reducer";
 
-const FullCard: FC<propsType> = (
+/* Types */
+import {dataItem} from "../../Data/data";
+
+/* Style */
+import style from './fullCard.module.scss';
+
+const FullCard: FC<dataItem> = (
     {
         image,
         title,
@@ -19,40 +23,40 @@ const FullCard: FC<propsType> = (
     const dispatch = useDispatch()
 
     const addProduct = (price: number, alias: string) => {
-        dispatch(basketAction.addProduct(price, alias))
+        dispatch(basketThunk.addProductThunk(alias, price))
     }
 
     const priceFormatEnd = String(price).slice(-3)
-    const priceFormatBegin = Math.floor(price/1000)
+    const priceFormatBegin = Math.floor(price / 1000)
 
     return (
-        <div className={style.fullCard_wrap}>
-            <div className={style.fullCard_container}>
-                <div>
-                    <img src={image} className={style.fullCard_image} alt=''/>
-                </div>
+        <div className={style.wrap}>
+            <div className={style.image}>
+                <img src={image} alt='Oops...card'/>
+            </div>
 
-                <div className={style.fullCard_description_wrap}>
-                    <h1 className={style.fullCard_description_title}>{title}</h1>
-                    <div className={style.fullCard_description_main}>{description}</div>
-                    <div>
-                        {
-                            properties.map(property => <div key={property.title}
-                                                            className={style.fullCard_description_property}>
-                                <span className={style.fullCard_description_property_title}>{`${property.title} `}</span>
-                                <strong className={style.fullCard_description_property_value}>{` - ${property.value}`}</strong></div>)
-                        }
+            <div className={style.description}>
+                <h4 className={style.title}>{title}</h4>
+                <div className={style.main}>{description}</div>
+                {
+                    properties.map(property => (
+                        <div key={property.title}
+                             className={style.property}>
+                                <span
+                                    className={style.fullCard_description_property_title}>{`${property.title} `}</span>
+                            <strong
+                                className={style.fullCard_description_property_value}>{` - ${property.value}`}</strong>
+                        </div>))
+                }
+                <div className={style.purchase}>
+                    <div className={style.fullCard_price}>
+                        {`${priceFormatBegin} ${priceFormatEnd} руб.`}
                     </div>
-                    <div className={style.fullCard_buy}>
-                        <div className={style.fullCard_price}>
-                            {`${priceFormatBegin} ${priceFormatEnd} руб.`}
-                        </div>
-                        <div className={style.fullCard_button_buy}>
-                            <button onClick={() => {
-                                addProduct(price, alias)
-                            }}>Купить
-                            </button>
-                        </div>
+                    <div className={style.fullCard_button_buy}>
+                        <button onClick={() => {
+                            addProduct(price, alias)
+                        }}>Купить
+                        </button>
                     </div>
                 </div>
             </div>
