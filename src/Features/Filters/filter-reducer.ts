@@ -1,34 +1,37 @@
-import { InferValueTypes } from "../../App/store"
+import {InferValueTypes} from "../../App/store"
 
 
-const initialState = [] as Array<filterType>
+const initialState = {
+    activeFilter: [] as Array<filterType>,
+}
 
 const filterReducer = (state: filtersStateType = initialState, action: filterActionType): filtersStateType => {
     switch (action.type) {
         case "FILTERS/ADD-FILTER": {
-            if (state.find( fl => fl.title === action.payload.title )) {
-                return [
-                    ...state.map( fl => {
-                        if (fl.title=== action.payload.title) {
+            if (state.activeFilter.find(fl => fl.title === action.payload.title)) {
+                return {
+                    ...state,
+                    activeFilter: state.activeFilter.map(fl => {
+                        if (fl.title === action.payload.title) {
                             return {...fl, value: action.payload.value}
                         } else {
                             return fl
                         }
                     })
-                ]
+                }
             } else {
-                return [
+                return {
                     ...state,
-                    action.payload
-                ]
+                    activeFilter: [...state.activeFilter, action.payload]
+                }
             }
         }
         case "FILTERS/DELETE-FILTER": {
-            return [
-                ...state.filter( item => item.title !== action.payload)
-            ]
+            return {
+                ...state,
+                activeFilter: state.activeFilter.filter(item => item.title !== action.payload)
+            }
         }
-
         default:
             return state
     }
@@ -47,6 +50,8 @@ export type filterType = {
     title: string
     value: string
 }
+export type filterAlias = 'Количество занятий' | 'Срок действия' | 'Категория тренера' | 'Время посещения' | 'Тип секции'
+
 type filtersStateType = typeof initialState
 type filterActionType = ReturnType<InferValueTypes<typeof filterActions>>
 

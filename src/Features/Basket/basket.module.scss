@@ -140,3 +140,27 @@
 .pos_relative {
   position: relative;
 }
+.popup {
+  position: absolute;
+  left: -80%;
+  top: $base*2.5;
+
+  &__close {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all $transition;
+  }
+  &__open {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all $transition;
+  }
+
+  &_title {
+    border-radius: $base;
+    padding: $base*2 $base*3;
+    background-color: $color_bgc__secondary;
+    font-size: $fs-sm;
+    font-weight: $fw-light;
+  }
+}

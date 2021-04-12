@@ -1,4 +1,3 @@
-
 import {Dispatch} from "redux";
 
 import {AppRootStateType, InferValueTypes} from "../../App/store";
@@ -6,7 +5,11 @@ import {AppRootStateType, InferValueTypes} from "../../App/store";
 const initialState = {
     count: 0,
     totalAmount: 0,
-    aliases: [] as Array<itemsInBasket>
+    aliases: [] as Array<itemsInBasket>,
+
+    isShowPopup: false,
+    titlePopup: '' as titlePopup,
+    buyLoading: false,
 }
 
 const basketReducer = (state: basketStateType = initialState, action: ActionsType): basketStateType => {
@@ -30,6 +33,13 @@ const basketReducer = (state: basketStateType = initialState, action: ActionsTyp
                 aliases: [...state.aliases, {alias: action.payload.alias, value: 1}]
             }
         }
+        case "BASKET/SET-SHOW-POPUP": {
+            return {
+                ...state,
+                isShowPopup: action.payload.showPopup,
+                titlePopup: action.payload.titlePopup
+            }
+        }
         default:
             return state
     }
@@ -40,23 +50,27 @@ export const basketAction = {
     addProduct: (alias: string, price: number) => ({type: 'BASKET/ADD-PRODUCT', payload: {price, alias}} as const),
 
     addNewProduct: (alias: string, price: number) => ({type: 'BASKET/ADD-NEW-PRODUCT', payload: {alias, price}} as const),
+
+    setShowPopup: (showPopup: boolean, titlePopup: titlePopup) => ({type: 'BASKET/SET-SHOW-POPUP', payload: {showPopup, titlePopup}} as const),
+
 }
 //THUNKS
 export const basketThunk = {
     addProductThunk: (alias: string, price: number) => (dispatch: Dispatch, getState: () => AppRootStateType) => {
         const state = getState().basket
-
         if (state.aliases.filter(al => al.alias === alias).length) {
             dispatch(basketAction.addProduct(alias, price))
         } else {
             dispatch(basketAction.addNewProduct(alias, price))
         }
+        dispatch(basketAction.setShowPopup(true, 'Added to cart!'))
     },
 }
 
 //TYPES
 type basketStateType = typeof initialState
 type ActionsType = ReturnType<InferValueTypes<typeof basketAction>>
+export type titlePopup = 'Added to cart!' | 'Some error!' | ''
 export type itemsInBasket = {
     alias: string
     value: number

@@ -25,7 +25,7 @@ const HomePage: FC = () => {
     }
 
     return (
-        <>
+        <div className={style.home_page}>
             <div className={style.filters_box}>
                 <Filters/>
             </div>
@@ -33,7 +33,7 @@ const HomePage: FC = () => {
             <div className={style.product_box}>
                 <ProductList/>
             </div>
-        </>
+        </div>
     )
 }
 export default HomePage

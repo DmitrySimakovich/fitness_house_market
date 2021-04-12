@@ -1,3 +1,11 @@
+@import "src/Common/Styles/variables.module";
+@import "src/Common/Styles/mixins.module";
+
+.home_page {
+  display: flex;
+  flex-direction: column;
+}
+
 .wrap_loader {
   display: flex;
   justify-content: center;
@@ -18,4 +26,15 @@
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
+}
+
+/* Media */
+@media (max-width: $m-lg) {
+  .home_page {
+    flex-direction: row;
+  }
+  .filters_box {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }

@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
-import {useSelector} from "react-redux";
+import React, {FC, useCallback, useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
 /* BLL */
-import {itemsInBasket} from './basket-reducer';
+import {basketAction, itemsInBasket, titlePopup} from './basket-reducer';
 
 /* Types */
 import {AppRootStateType} from "../../App/store";
@@ -11,6 +11,12 @@ import {dataItem} from "../../Data/data";
 /* Style */
 import style from './basket.module.scss'
 import basket from '../../assets/shopping-basket-512.png';
+
+type propsBasketPopup = {
+    title: titlePopup
+    resetShowPopup: () => void
+    isShowPopup: boolean
+}
 
 const BoughtList = () => {
 
@@ -46,9 +52,36 @@ const BoughtList = () => {
     )
 }
 
+
+const BasketPopup: FC<propsBasketPopup> = ({title, resetShowPopup, isShowPopup}) => {
+
+    useEffect(() => {
+        const timeOutId = setTimeout(() => {resetShowPopup()}, 2500)
+
+        return (
+            () => {
+                clearTimeout(timeOutId)
+            }
+        )
+    }, [isShowPopup, resetShowPopup])
+
+    return (
+        <span className={style.popup_title}>
+            {title}
+        </span>
+    )
+}
+
 const Basket: FC = () => {
 
+    const dispatch = useDispatch()
     const count = useSelector<AppRootStateType, number>(state => state.basket.count)
+    const isShowPopup = useSelector<AppRootStateType, boolean>(state => state.basket.isShowPopup)
+    const titlePopup = useSelector<AppRootStateType, titlePopup>(state => state.basket.titlePopup)
+
+    const callBackShowPopup = useCallback(() => {
+        dispatch(basketAction.setShowPopup(false, 'Added to cart!'))
+    }, [dispatch])
 
     return (
         <div className={style.pos_relative}>
@@ -56,6 +89,10 @@ const Basket: FC = () => {
                 <div className={style.basket_value}>{count}</div>
                 <img src={basket} className={style.basket_icon} alt=''/>
                 <div>Корзина</div>
+            </div>
+
+            <div className={`${style.popup} ${isShowPopup ? style.popup__open : style.popup__close }`}>
+                <BasketPopup title={titlePopup} resetShowPopup={callBackShowPopup} isShowPopup={isShowPopup} />
             </div>
 
             <BoughtList/>
